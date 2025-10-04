@@ -1,0 +1,751 @@
+/* ============ RESET & GLOBAL ============ */
+*{box-sizing:border-box;margin:0;padding:0}
+img{display:block;max-width:100%}
+html{scroll-behavior:smooth}
+
+/* --- Renk Paleti (senin verdiklerin) --- */
+:root{
+  --bg:#b9ceac;        /* body arka plan */
+  --card:#f5f5dc;      /* IT, Languages, Goals kart zeminleri */
+  --tl-card:#b9ceac;   /* Timeline olay kart zeminleri */
+  --tl-line:#4f7942;   /* Timeline çizgisi */
+  --tl-dot:#733321;    /* Timeline noktaları */
+  --head:#4f7942;      /* Başlık yazıları */
+  --body:#733321;      /* Paragraf/Gövde yazıları */
+  --sel-bg:#79aaf1;    /* Seçim arka planı */
+  --sel-fg:#f5f5dc;    /* Seçim yazısı */
+}
+
+body{
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  line-height:1.65;
+  color:var(--body);
+  background:var(--bg);
+  padding:0 0 0 0;
+}
+
+/* sayfa genişliği */
+header,nav,section,.tl-alt{
+  max-width:1000px;
+  margin:0 auto;
+  padding-left:24px;
+  padding-right:24px;
+}
+
+/* Tipografi */
+h1{font-size:2.25rem;color:var(--head);margin-bottom:10px}
+h2{font-size:1.5rem;color:var(--head);margin:28px 0 12px}
+h3,h4{color:var(--head)}
+p{margin-bottom:16px;color:var(--body)}
+
+/* Linkler: mevcut renk ve hover davranışı kalsın */
+a{color:#79aaf1;text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ============ HERO (eskisi) ============ */
+.hero{ text-align:center; padding:28px 0 10px; margin-bottom:18px }
+.avatar{
+  width:132px;height:132px;object-fit:cover;border-radius:50%;
+  box-shadow:0 10px 30px rgba(2,6,23,.12);
+  margin:14px auto 18px;
+}
+.hero h1{font-size:32px}
+.hero .tagline{font-size:15px}
+
+/* ============ HERO-2 (kullandığın üst bölüm) ============ */
+body { background:var(--bg); }
+.hero-2{
+  --sage:#dfe8df; --sage-deep:#cfe0d1;
+  padding:56px 16px 28px;
+  text-align:center;
+  background:linear-gradient(180deg,var(--sage), var(--bg) 70%);
+  border-bottom:1px solid #e7e2da;
+}
+.hero-2 .avatar{
+  width:120px;height:120px;border-radius:50%;object-fit:cover;
+  box-shadow:0 10px 26px rgba(2,6,23,.18);
+}
+.hero-2 h1{ margin:12px 0 6px; font-size:32px; color:var(--head) }
+.hero-2 .tagline{ max-width:760px; margin:0 auto; font-size:15px; line-height:1.6; color:var(--body) }
+
+/* ============ NAV (pill) ============ */
+.pill-nav{ display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-top:14px }
+.pill-nav .pill{
+  padding:8px 14px; background:#ffffff; border:1px solid #d9e4db;
+  border-radius:999px; color:#0f3b4d; font-weight:600;
+  box-shadow:0 2px 6px rgba(2,6,23,.08);
+  transition:transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+}
+.pill-nav .pill:hover{
+  transform:translateY(-1px);
+  box-shadow:0 8px 18px rgba(2,6,23,.16);
+  background:#f4faf4;
+}
+
+/* ============ ABOUT INTRO ============ */
+.about-intro{ max-width:900px; margin:28px auto 26px; padding:0 16px }
+.about-intro h2{ text-align:center }  /* başlığı ortala */
+.about-intro p{ max-width:900px }
+
+/* ============ KART GENEL ============ */
+.card{
+  background:var(--card);
+  border:1px solid rgba(2,6,23,.06);
+  border-radius:16px;
+  padding:18px 18px;
+  box-shadow:0 8px 28px rgba(2,6,23,.06);
+}
+
+/* ============ IT & LANGUAGES (iki sütun) ============ */
+.info-grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px }
+.info.two-col{
+  display:grid; grid-template-columns:1fr 140px; gap:18px;
+  align-items:start; padding:18px;
+}
+.info.two-col.reverse{ grid-template-columns:140px 1fr }
+.info-main h2{ margin:4px 0 10px }
+.info-main ul{ margin:0; padding-left:18px }
+.info-thumbs{ display:flex; flex-direction:column; gap:10px }
+.info-thumbs img{
+  width:100%; height:90px; object-fit:cover;
+  border-radius:10px; box-shadow:0 6px 16px rgba(2,6,23,.12);
+  border:1px solid #e6e1d9; transition:transform .2s ease
+}
+.info-thumbs img:hover{ transform:scale(1.03) }
+
+/* Languages liste aralığı (senin isteğin) */
+.languages-list li{ font-size:1.2rem; line-height:2.8rem }
+
+/* Responsive IT/Lang */
+@media (max-width:900px){
+  .info-grid{ grid-template-columns:1fr; gap:18px }
+  .info.two-col, .info.two-col.reverse{ grid-template-columns:1fr }
+  .info-thumbs{ flex-direction:row }
+  .info-thumbs img{ height:70px }
+}
+
+/* ============ TIMELINE ============ */
+.tl-alt{ position:relative; padding-top:8px; padding-bottom:16px }
+.tl-alt .tl-line{
+  position:absolute; left:50%; top:0; bottom:0; width:3px;
+  background:var(--tl-line); transform:translateX(-50%)
+}
+.tl-alt .tl-row{ position:relative; margin:22px 0 }
+.tl-alt .tl-dot{
+  position:absolute; left:50%; top:10px; transform:translate(-50%,-50%);
+  width:12px; height:12px; background:var(--tl-dot); border-radius:50%;
+  box-shadow:0 0 0 5px #eff6ff
+}
+.tl-card{
+  width:40%;
+  background:var(--tl-card);
+  border:1px solid rgba(2,23,15,.06);
+  border-radius:16px; padding:16px;
+  box-shadow:0 10px 30px rgba(2,6,23,.08);
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.tl-card.left{ margin-right:auto }
+.tl-card.right{ margin-left:auto }
+.tl-card:hover{ transform:translateY(-3px) scale(1.03); box-shadow:0 16px 40px rgba(2,6,23,.14) }
+.tl-card h3{ font-size:1.1rem; margin-bottom:10px } /* renkler başlıktan gelir */
+
+/* timeline görselleri */
+.mini-gallery{ display:flex; gap:10px; margin:10px 0 }
+.mini-gallery img{
+  width:28%; aspect-ratio:1/1; height:auto; object-fit:cover; border-radius:12px;
+  transition:transform .25s ease, box-shadow .25s ease
+}
+.mini-gallery img:hover{ transform:scale(1.14); box-shadow:0 12px 28px rgba(2,6,23,.22) }
+.mini-gallery.two img{ width:48% }
+.timeline-photo{
+  width:210px; height:210px; object-fit:cover; border-radius:12px; transition:transform .25s ease
+}
+.timeline-photo:hover{ transform:scale(1.12) }
+
+/* Timeline responsive */
+@media (max-width:840px){
+  .tl-alt .tl-line{ left:14px; transform:none }
+  .tl-alt .tl-dot{ left:14px; transform:translate(-50%,-50%) }
+  .tl-card{ width:auto; margin-left:38px; margin-right:0 }
+}
+@media (max-width:520px){
+  .hero{ padding:20px 0 6px }
+  .hero h1{ font-size:28px }
+}
+
+
+#timeline h2{
+  text-align:center;
+  margin-bottom:40px;
+
+}
+.tl-alt .tl-line{
+  top:75px;
+}
+
+
+
+
+
+
+/* ============ HOBBIES (tek tanım, sıkılaştırılmış) ============ */
+#hobbies{ text-align:center; margin:60px auto }
+.hobbies-board{
+  display:grid;
+  grid-template-columns:1fr 140px 1fr;
+  grid-template-rows:1fr 90px 1fr;
+  gap:10px;                      /* yaklaştırıldı */
+  align-items:center; justify-items:center;
+}
+.hobbies-board .tl{ grid-column:1; grid-row:1 }
+.hobbies-board .tr{ grid-column:3; grid-row:1 }
+.hobbies-board .center{ grid-column:2; grid-row:2 }
+.hobbies-board .bl{ grid-column:1; grid-row:3 }
+.hobbies-board .br{ grid-column:3; grid-row:3 }
+
+#hobbies .section-title{
+  grid-column:2; grid-row:2;
+  font-size:2.6rem;              /* büyütüldü */
+  color:var(--head);
+  margin:0 0 6px 0;              /* başlık-kart arası yakın */
+}
+
+/* flip kartlar (ölçüler korunur) */
+.hobby-card{ width:220px; height:220px; perspective:1000px; position:relative }
+.hobby-card .card-inner{ width:100%; height:100%; transition:transform .7s; transform-style:preserve-3d }
+.hobby-card:hover .card-inner{ transform:rotateY(180deg) }
+
+.card-face{
+  position:absolute; inset:0; border-radius:14px; backface-visibility:hidden; overflow:hidden;
+  box-shadow:0 8px 22px rgba(0,0,0,.12);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+}
+.card-face.front{ background:#fff }
+.card-face.front img{ width:100%; height:100%; object-fit:cover }
+.card-face.front h3{
+  position:absolute; bottom:10px; background:rgba(0,0,0,.55); color:#fff;
+  padding:6px 10px; border-radius:6px; font-size:.9rem;
+}
+.card-face.back{ background:#f1f5f9; transform:rotateY(180deg); padding:12px }
+.back-content{ text-align:center }
+.back-content h4{ color:var(--head); margin-bottom:8px }
+.back-content p{ font-size:.9rem; color:#334155 }
+.quad-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:6px; width:100%; height:100% }
+.quad-grid img{ width:100%; height:100%; object-fit:cover; border-radius:6px }
+
+/* hobbies responsive */
+@media (max-width:880px){
+  .hobbies-board{
+    grid-template-columns:1fr;
+    grid-template-rows:auto;
+    gap:18px;
+  }
+  .hobbies-board .tl,.hobbies-board .tr,.hobbies-board .bl,.hobbies-board .br,.hobbies-board .center{
+    grid-column:auto; grid-row:auto;
+  }
+}
+
+/* ============ FUTURE GOALS ============ */
+#goals{
+  background:var(--card);
+  border-radius:20px;
+  padding:28px 22px 34px;
+  margin:68px auto;
+  max-width:1100px;
+  box-shadow:0 20px 60px rgba(40,30,10,.08);
+}
+#goals h2{ text-align:center; letter-spacing:.3px; margin:0 0 22px }
+.goals-grid{
+  display:grid; grid-template-columns:repeat(2,minmax(260px,1fr));
+  gap:22px; max-width:1000px; margin:0 auto;
+}
+.goal-card{
+  background:var(--card);
+  border:1px solid rgba(20,20,20,.06);
+  border-radius:16px; padding:18px 18px 16px;
+  box-shadow:0 10px 28px rgba(20,20,20,.08);
+  transition:transform .25s ease, box-shadow .25s ease;
+  text-align:center;
+}
+.goal-card:hover{ transform:translateY(-4px); box-shadow:0 18px 40px rgba(20,20,20,.14) }
+.goal-icon{
+  width:48px; height:48px; line-height:48px; border-radius:12px;
+  background:linear-gradient(145deg,#39B68A,#2E8F74); color:#fff; font-size:24px; text-align:center;
+  box-shadow:0 6px 16px rgba(46,143,116,.35); margin-bottom:10px;
+}
+.goal-card h3{ margin:6px 0 6px; font-size:18px }
+.goal-card p{ margin:0 0 12px; line-height:1.5 }
+.progress{ height:8px; background:#E9E2D7; border-radius:999px; overflow:hidden }
+.progress span{
+  display:block; height:100%; width:0%;
+  background:linear-gradient(90deg,#2E8F74,#2F6FB6);
+  transition:width 900ms ease; border-radius:999px;
+}
+@media (max-width:760px){ .goals-grid{ grid-template-columns:1fr } }
+
+/* ============ CONTACT ============ */
+.contact-section{
+  background-color:#337399; color:#fff; text-align:center;
+  padding:50px 20px; margin-top:50px;
+}
+.contact-section h2{ font-size:2rem; margin-bottom:20px }
+.contact-section a{ color:#eaebea; font-weight:bold; text-decoration:none }
+.contact-section a:hover{ text-decoration:underline }
+
+/* ============ SEÇİM & CARET ============ */
+::selection{ background:var(--sel-bg); color:var(--sel-fg) }
+::-moz-selection{ background:var(--sel-bg); color:var(--sel-fg) }
+input,textarea{ caret-color:var(--head) }
+
+
+
+/* === PATCH v2 — About kartı + aralıklar + Hobbies yakınlaştırma/büyütme === */
+
+/* 1) About Me paragrafını kart içine al */
+.about-intro{
+  background: var(--card);
+  border: 1px solid rgba(2,6,23,.06);
+  border-radius: 16px;
+  padding: 18px 18px;
+  box-shadow: 0 8px 28px rgba(2,6,23,.06);
+}
+
+/* 2) Bölümler arası boşluklar (Info ↔ Timeline ↔ Hobbies) */
+#info{ margin-bottom: 36px; }          /* IT & Languages bittiğinde nefes aldır */
+#timeline{ margin-top: 56px; margin-bottom: 56px; }  /* Timeline ile komşularından uzaklaş */
+#hobbies{ margin-top: 72px; }          /* Timeline → Hobbies arası biraz daha açılsın */
+
+/* 3) Hobbies: başlık daha büyük, kartlar birbirine ve başlığa daha yakın + kartlar daha büyük */
+#hobbies .section-title{
+  font-size: 2.8rem;    /* büyütüldü */
+  margin-bottom: 4px;   /* başlık ile kartlar arası kısaldı */
+}
+
+.hobbies-board{
+  grid-template-columns: 1fr 120px 1fr;  /* ortadaki “Hobbies” alanını daralt → kartlar merkeze yaklaşsın */
+  grid-template-rows: 1fr 70px 1fr;      /* dikeyde de başlığa yakınlaşsın */
+  gap: 6px;                               /* kartlar birbirine daha yakın */
+}
+
+/* kart boyutlarını büyüt */
+.hobby-card{ width: 240px; height: 240px; }
+
+#hobbies .section-title {
+  display: inline-block;   /* sadece yazının çevresini alsın */
+  background: #f5f5dc;     /* diğer kartlarla uyumlu renk */
+  padding: 8px 18px;       /* yazının etrafına boşluk */
+  border-radius: 10px;     /* köşeleri yumuşat */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12); /* hafif gölge */
+  font-size: 2rem;
+  color: #4f7942;          /* başlık rengi */
+  margin-bottom:40px;
+}
+#hobbies .section-title {
+  text-transform: uppercase; /* tüm harfleri büyük yapar */
+}
+
+
+
+
+
+
+.contact-section {
+  background-color:#f5f5dc;   /* senin seçtiğin renk */
+  color: #333;                 /* yazılar görünür kalsın diye koyu gri */
+  text-align: center;
+  padding: 25px 15px;          /* daha dar alan */
+  margin-top: 40px;
+  border-top: 1px solid #ccc;  /* yukarıya ince ayraç */
+}
+
+.contact-section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+  color: #444;
+}
+
+.contact-section a {
+  color: #b9ceac;   /* linklerde hafif mavi ton */
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact-section a:hover {
+  text-decoration: underline;
+}
+
+
+:root{
+  --tl-paragraph:#733321 ;
+}
+.tl-card p{
+  color: var(--tl-paragraph) ;
+}
+
+
+#timeline{
+  background:#f5f5dc   /*timeline arka plani*/
+}
+
+
+.tagline {
+  display: inline-block;
+  background: #f5f5dc;   /* Açık krem arka plan */
+  color: #733321;        /* Yazı rengi */
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 600px;      /* Çok geniş olmasın */
+  margin: 10px auto;
+}
+
+.tagline .second-line {
+  display: block;        /* Alt satıra at */
+  margin-top: 4px;
+}
+
+
+
+/* ===== Future Goals – polish & motion pack ===== */
+
+/* Izgara ve boşluklar */
+#goals .goals-grid{
+  gap: 26px;
+}
+
+
+
+/* Kart: derinlik, hover yükselme, parlama */
+#goals .goal-card{
+  position: relative;
+  overflow: hidden;
+  background: #f5f5dc;                 /* kart zemin */
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+  transform: translateY(22px);
+  opacity: 0;
+  animation: fg-fadeUp .8s ease forwards;
+}
+#goals .goal-card:nth-child(1){ animation-delay:.15s; }
+#goals .goal-card:nth-child(2){ animation-delay:.30s; }
+#goals .goal-card:nth-child(3){ animation-delay:.45s; }
+#goals .goal-card:nth-child(4){ animation-delay:.60s; }
+
+#goals .goal-card:hover{
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(0,0,0,.16);
+}
+
+/* Hover’da cam parıltısı */
+#goals .goal-card::after{
+  content:"";
+  position:absolute; inset:-40% -120% auto -120%;
+  height:200%; width:60%;
+  transform: rotate(25deg);
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%,
+                                       rgba(255,255,255,.45) 50%,
+                                       rgba(255,255,255,0) 100%);
+  opacity:0; pointer-events:none;
+  transition: transform .6s ease, opacity .6s ease;
+}
+#goals .goal-card:hover::after{
+  opacity:.9; transform: translateX(220%) rotate(25deg);
+}
+
+/* İkon etkileşimi */
+#goals .goal-icon{
+  transition: transform .35s ease, box-shadow .35s ease, filter .35s ease;
+}
+#goals .goal-card:hover .goal-icon{
+  transform: scale(1.18) rotate(8deg);
+  box-shadow: 0 8px 22px rgba(0,0,0,.25);
+  filter: saturate(1.15);
+}
+
+/* Başlık ve metin ufak parlamalar */
+#goals .goal-card h3{ transition: letter-spacing .25s ease, color .25s ease; }
+#goals .goal-card:hover h3{ letter-spacing: .3px; }
+
+/* İlerleme çubuğu – otomatik dolma */
+#goals .progress{
+  height: 10px;
+  border-radius: 999px;
+  background: #e9e2d7;
+  overflow: hidden;
+}
+#goals .progress span{
+  --progress: 70%;               /* HTML'de kart bazında override edebilirsin */
+  display: block; height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg,#2E8F74,#2F6FB6);
+  border-radius: 999px;
+  box-shadow: inset 0 0 8px rgba(0,0,0,.08);
+  animation: fg-fill 1.6s ease forwards;
+}
+
+/* Mini “pulse” noktacığı (opsiyonel) */
+#goals .progress span::after{
+  content:"";
+  float:right; height:100%; aspect-ratio:1/1; margin-right:-6px;
+  border-radius:50%;
+  background: #2F6FB6;
+  box-shadow: 0 0 0 0 rgba(47,111,182,.45);
+  animation: fg-pulse 1.6s ease infinite;
+}
+
+/* Keyframes */
+@keyframes fg-fadeUp{
+  from{ opacity:0; transform: translateY(22px); }
+  to  { opacity:1; transform: translateY(0); }
+}
+@keyframes fg-fill{
+  to{ width: var(--progress); }
+}
+@keyframes fg-pulse{
+  0%  { box-shadow: 0 0 0 0 rgba(47,111,182,.35); }
+  100%{ box-shadow: 0 0 0 10px rgba(47,111,182,0); }
+}
+
+/* Hareketi sevmeyenler için saygı */
+@media (prefers-reduced-motion: reduce){
+  #goals .goal-card,
+  #goals .goal-card::after,
+  #goals .goal-icon,
+  #goals .progress span{
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+  #goals .progress span{ width: var(--progress); }
+}
+
+
+
+
+
+/* ==== TIMELINE — son hali (renkler güncellendi) ==== */
+#timeline{
+position: relative;
+max-width: 1100px;
+margin: 64px auto;
+background: #f5f5dc; /* timeline arka plan */
+border-radius: 20px;
+padding: 40px 56px 60px;
+box-shadow: 0 10px 30px rgba(0,0,0,.06);
+}
+
+/* Başlık */
+#timeline h2{
+margin: 0 0 24px;
+text-align: center;
+font-size: 1.9rem;
+letter-spacing: .04em;
+color: #4f7942; /* başlık rengi */
+}
+
+/* Dikey çizgi başlığın altından başlasın */
+#timeline .tl-line{
+position: absolute;
+left: 50%;
+top: 96px;
+bottom: 24px;
+width: 3px;
+background: #733321; /* çizgi rengi = paragraf rengi */
+transform: translateX(-50%);
+}
+
+/* Satırlar ve noktalar */
+#timeline .tl-row{
+position: relative;
+margin: 46px 0;
+}
+#timeline .tl-row:first-of-type{
+margin-top: 18px;
+}
+#timeline .tl-dot{
+position: absolute;
+left: 50%;
+top: 0;
+transform: translate(-50%, -50%);
+width: 12px;
+height: 12px;
+border-radius: 50%;
+background: #b9ceac; /* nokta rengi */
+box-shadow: 0 0 0 4px #e8f1e4;
+}
+
+/* Kartlar */
+#timeline .tl-card{
+width: 42%;
+background: #b9ceac; /* kutucuk rengi */
+border-radius: 16px;
+padding: 18px;
+box-shadow: 0 8px 22px rgba(0,0,0,.08);
+transition: transform .25s ease;
+}
+#timeline .tl-card.left{ margin-right: auto; }
+#timeline .tl-card.right{ margin-left: auto; }
+#timeline .tl-card:hover{ transform: translateY(-3px); }
+
+#timeline .tl-card h3{
+color: #4f7942; /* başlık rengi */
+margin: 0 0 8px;
+font-size: 1.1rem;
+}
+#timeline .tl-card p{
+color: #733321; /* paragraf rengi */
+line-height: 1.6;
+}
+
+/* Görseller ve videolar */
+#timeline .mini-gallery{
+display: flex;
+justify-content: center;
+gap: 12px;
+margin: 12px 0 8px;
+}
+#timeline .mini-gallery img,
+#timeline .timeline-video{
+width: 190px;
+height: 190px;
+object-fit: cover;
+border-radius: 12px;
+box-shadow: 0 6px 16px rgba(0,0,0,.12);
+}
+
+/* Hafif zikzak görünüm */
+#timeline .tl-row:nth-child(even) .tl-card{
+margin-top: 56px;
+}
+
+/* Mobil uyum */
+@media (max-width: 820px){
+#timeline{
+padding: 28px 18px 40px;
+}
+#timeline .tl-line{
+left: 14px;
+transform: none;
+top: 84px;
+}
+#timeline .tl-dot{
+left: 14px;
+}
+#timeline .tl-card{
+width: 92%;
+margin: 16px auto !important;
+}
+#timeline .mini-gallery img,
+#timeline .timeline-video{
+width: 160px;
+height: 160px;
+}
+}
+
+
+#timeline .tl-card {
+width: 48%; /* önceden 42 idi → biraz daha geniş */
+background: #b9ceac;
+border-radius: 16px;
+padding: 24px 22px; /* iç boşluk biraz arttı */
+box-shadow: 0 8px 22px rgba(0,0,0,.08);
+transition: transform .25s ease;
+}
+
+
+
+/* === MOBILE RESET FOR TIMELINE & LAYOUT === */
+@media (max-width: 768px){
+
+/* Genel konteynerler telefonda tam genişlik */
+header, nav, section, .tl-alt{
+max-width: 100%;
+padding-left: 16px;
+padding-right: 16px;
+}
+
+/* Hero / nav ufak toparlama */
+.hero-2{ padding: 40px 16px 20px; }
+.pill-nav{ gap: 8px; }
+.pill-nav .pill{ padding: 7px 12px; }
+
+/* About & info kart aralıkları */
+.about-intro{ margin: 22px auto 10px; }
+#info{ margin: 22px auto 26px; }
+.info-grid{ display: grid; grid-template-columns: 1fr; gap: 16px; }
+.info.two-col,
+.info.two-col.reverse{ grid-template-columns: 1fr; gap: 14px; }
+
+/* ===== TIMELINE (mobile) ===== */
+#timeline{ margin-top: 32px; }
+
+/* Başlık ortalı, daha kısa boşluk */
+#timeline > h2{
+text-align: center;
+margin: 0 0 10px;
+letter-spacing: .04em;
+}
+
+/* Dikey çizgi sola, kartlar sağda tek sütun */
+.tl-alt{ position: relative; padding-top: 6px; padding-bottom: 10px; }
+.tl-alt .tl-line{
+position: absolute;
+left: 22px; /* çizgi kenar payı */
+top: 0; bottom: 0;
+width: 2px;
+transform: none;
+}
+.tl-alt .tl-dot{
+left: 22px;
+transform: translate(-50%,-50%);
+width: 11px; height: 11px;
+}
+
+/* Kartlar tek kolon, çizgiden makul uzaklıkta */
+.tl-card{
+width: 100%;
+margin-left: 42px; /* çizgiden uzaklık */
+margin-right: 0;
+padding: 14px;
+border-radius: 14px;
+}
+.tl-card.left{ margin-right: 0; }
+.tl-card.right{ margin-left: 42px; }
+
+/* Satırlar arası mesafe */
+.tl-alt .tl-row{ margin: 16px 0 22px; }
+
+/* Başlıklar/paragraflar mobil ölçekte */
+.tl-card h3{ font-size: 1rem; margin-bottom: 8px; }
+.tl-card p{ font-size: .95rem; line-height: 1.55; }
+
+/* Mini galeri: tüm görseller/videolar aynı ebatta ve satır içine sığar */
+.mini-gallery{
+display: flex;
+gap: 8px;
+margin: 8px 0 6px;
+flex-wrap: wrap;
+}
+.mini-gallery img,
+.mini-gallery video,
+.timeline-photo,
+.timeline-video{
+width: calc(33.333% - 6px); /* 3 sütun */
+height: 92px;
+object-fit: cover;
+border-radius: 10px;
+}
+/* 2'li galeri kullanan kartlar (ör. Germany) yine tek satıra otursun */
+.mini-gallery.two img,
+.mini-gallery.two video{
+width: calc(50% - 6px); /* 2 sütun */
+height: 100px;
+}
+
+/* Hobbies ile Timeline arasında nefes */
+.hobbies{ margin-top: 36px; }
+#goals{ margin: 40px 12px; padding: 22px 16px; }
+.goals-grid{ grid-template-columns: 1fr; gap: 14px; }
+}
