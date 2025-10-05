@@ -1624,6 +1624,27 @@ left: -25px; /* sola kaydırma miktarı, isteğe göre 15-35px arası oynayabili
 /* Mobil görünüm için küçük ayar */
 @media (max-width: 640px) {
 #hobbies .section-title {
-left: -22px; /* mobilde biraz daha az kaydır */
+left: -20px; /* mobilde biraz daha az kaydır */
+}
+}
+
+/* Timeline'daki son üniversite fotoğrafını orantılı kare yap */
+.timeline-photo {
+width: 180px; /* biraz daralt */
+height: 180px; /* kareye yakınlaştır */
+object-fit: cover; /* çerçevenin dışına taşmadan ortala */
+border-radius: 12px;
+transition: transform 0.25s ease;
+}
+
+.timeline-photo:hover {
+transform: scale(1.08); /* hover efekti eskisiyle aynı */
+}
+
+/* Mobil görünümde biraz daha küçük boyut */
+@media (max-width: 640px) {
+.timeline-photo {
+width: 150px;
+height: 150px;
 }
 }
