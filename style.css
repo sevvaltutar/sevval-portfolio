@@ -1473,3 +1473,97 @@ gap: 14px;
 }
 .goal-card{ padding: 16px; }
 }
+
+/* ===== MOBİL HOBBIES DÜZENİ (2x2 + ORTADA BAŞLIK) ===== */
+@media (max-width: 700px) {
+
+#hobbies {
+padding: 0;
+margin-top: 20px;
+}
+
+.hobbies-board {
+display: grid;
+grid-template-columns: repeat(2, 1fr); /* 2 sütun */
+grid-template-rows: auto auto auto; /* 3 satır: üst 2 kart, başlık, alt 2 kart */
+gap: 16px;
+justify-items: center;
+align-items: center;
+}
+
+/* Kart boyutu */
+.hobby-card {
+width: 150px;
+height: 150px;
+}
+
+/* Üstteki iki kart */
+.hobbies-board .tl { grid-column: 1; grid-row: 1; }
+.hobbies-board .tr { grid-column: 2; grid-row: 1; }
+
+/* Ortadaki HOBBIES başlığı */
+.hobbies-board .center {
+grid-column: 1 / span 2; /* iki sütunu da kapla */
+grid-row: 2;
+text-align: center;
+margin: 10px 0;
+}
+
+/* Alttaki iki kart */
+.hobbies-board .bl { grid-column: 1; grid-row: 3; }
+.hobbies-board .br { grid-column: 2; grid-row: 3; }
+
+/* Başlık boyutu */
+#hobbies .section-title {
+font-size: 2rem;
+}
+}
+
+/* Ultra küçük ekranlarda (iPhone SE boyutu gibi) */
+@media (max-width: 420px) {
+.hobby-card {
+width: 135px;
+height: 135px;
+}
+#hobbies .section-title {
+font-size: 1.8rem;
+}
+}
+
+/* ===== MOBİLDE LANGUAGE BAYRAKLARI DÜZENİ ===== */
+@media (max-width: 700px) {
+
+/* Language kartının içindeki bayrak görselleri */
+.info-thumbs img {
+width: 80px; /* genişliği küçült */
+height: 60px; /* orantılı yükseklik */
+object-fit: cover;
+border-radius: 8px;
+}
+
+/* Bayrakların hizalanması */
+.info-thumbs {
+flex-wrap: wrap; /* taşarsa alt satıra geçsin */
+justify-content: center;
+gap: 8px;
+}
+
+/* Language metni ile görseller arasına biraz boşluk */
+.info.two-col.reverse {
+gap: 14px;
+}
+
+/* Küçük ekranlarda kartın yanları taşmasın */
+.info.two-col.reverse img {
+max-width: 100%;
+}
+}
+
+/* Ultra küçük ekranlar (örneğin iPhone SE) */
+@media (max-width: 420px) {
+.info-thumbs img {
+width: 70px;
+height: 50px;
+}
+}
+
