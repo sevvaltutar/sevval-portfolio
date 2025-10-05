@@ -748,3 +748,141 @@ height: 100px;
 #goals{ margin: 40px 12px; padding: 22px 16px; }
 .goals-grid{ grid-template-columns: 1fr; gap: 14px; }
 }
+
+/* === TEMEL AKIŞ: kutular taşmasın, medya esnek olsun === */
+*{box-sizing:border-box}
+img,video{max-width:100%;height:auto;display:block}
+
+/* Konteynır: masaüstünde 1100px’e kadar, mobilde kenar boşluklu */
+.container{max-width:1100px;margin:0 auto;padding:0 16px}
+
+/* Başlıklar ve paragraflar (okunabilirlik) */
+h1,h2,h3{line-height:1.25}
+p{line-height:1.65}
+
+/* NAV: satır kaydırmalı pill tarzı */
+nav{
+display:flex;flex-wrap:wrap;gap:10px;justify-content:center;
+margin:14px 0 24px;
+}
+nav a{
+padding:8px 12px;border-radius:999px;text-decoration:none;
+border:1px solid rgba(0,0,0,.08);
+}
+
+/* Kart genel (About, IT info, Languages vs.) */
+.card{
+background:#fffff0;border:1px solid rgba(0,0,0,.06);
+border-radius:14px;padding:16px;box-shadow:0 6px 18px rgba(0,0,0,.06);
+margin:16px 0;
+}
+
+/* === TIMELINE masaüstü düzeni (varsayılan) === */
+#timeline{position:relative;background:#f5f5dc;border-radius:20px;padding:28px 24px;margin:32px 0}
+#timeline > h2{ text-align:center; margin:0 0 14px; color:#4f7942; }
+
+.tl-alt{position:relative;padding-top:8px}
+.tl-alt .tl-line{
+position:absolute;left:50%;top:48px;bottom:16px;width:3px;
+transform:translateX(-50%);background:#733321; /* çizgi = paragraf rengi */
+}
+.tl-row{position:relative;margin:38px 0}
+.tl-dot{
+position:absolute;left:50%;top:0;transform:translate(-50%,-50%);
+width:12px;height:12px;border-radius:50%;background:#b9ceac; /* noktalar */
+box-shadow:0 0 0 4px rgba(255,255,255,.7)
+}
+
+.tl-card{
+width:44%;background:#b9ceac;border-radius:16px;padding:18px;
+box-shadow:0 8px 22px rgba(0,0,0,.08);transition:transform .25s ease;
+}
+.tl-card.left{margin-right:auto}
+.tl-card.right{margin-left:auto}
+.tl-card:hover{transform:translateY(-3px)}
+.tl-card h3{color:#4f7942;margin:0 0 8px;font-size:1.1rem}
+.tl-card p{color:#733321;margin:0 0 10px}
+
+.mini-gallery{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:10px 0}
+.mini-gallery img,.timeline-photo,.tl-video{
+width:190px;height:190px;object-fit:cover;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,.12)
+}
+/* hafif zikzak */
+.tl-row:nth-child(even) .tl-card{ margin-top:48px }
+
+/* === HOBBIES (merkez başlık + kartlar) === */
+#hobbies{ margin:40px 0 }
+#hobbies .hobbies-board{
+display:grid;grid-template-columns:1fr 220px 1fr;
+grid-template-rows:1fr 220px 1fr;gap:28px;align-items:center;justify-items:center
+}
+#hobbies .section-title{ font-weight:800; }
+.hobby-card{ width:220px;height:220px; perspective:1000px }
+.hobby-card .card-inner{ width:100%;height:100%; transform-style:preserve-3d; transition:transform .6s }
+.hobby-card:hover .card-inner{ transform:rotateY(180deg) }
+.card-face{ position:absolute; inset:0; border-radius:14px; backface-visibility:hidden; overflow:hidden; }
+.card-face.front img{ width:100%;height:100%;object-fit:cover }
+
+/* === GOALS grid === */
+.goals-grid{ display:grid; grid-template-columns:repeat(2,minmax(260px,1fr)); gap:18px }
+
+/* === CONTACT (alt bant) === */
+.contact-section{ padding:36px 16px; text-align:center }
+
+/* ===========================
+MOBİL UYUMLULUK (≤ 768px)
+=========================== */
+@media (max-width:768px){
+
+/* Başlık boyları küçülsün */
+h1{font-size:1.7rem} h2{font-size:1.25rem}
+
+/* Kartlar tek sütun genişlikte */
+.card{ padding:14px }
+
+/* TIMELINE: çizgi sola, kartlar tek sütun */
+#timeline{ padding:18px 16px; margin:24px 0 }
+#timeline > h2{ margin-bottom:8px }
+
+.tl-alt{ padding-top:0 }
+.tl-alt .tl-line{
+left:14px; transform:none; top:58px; bottom:12px; width:3px;
+}
+.tl-dot{ left:14px; transform:translate(-50%,-50%); width:10px; height:10px }
+
+.tl-card{
+width:auto; margin:12px 0 12px 38px; padding:14px; border-radius:14px;
+}
+.tl-card.left,.tl-card.right{ margin-left:38px; margin-right:0 }
+.tl-row{ margin:18px 0 }
+
+/* Medya: 16:9 olacak şekilde aynı ölçü */
+.mini-gallery{ gap:8px; margin:8px 0 }
+.mini-gallery img,.timeline-photo,.tl-video{
+width:100%; max-width:360px; height:auto; aspect-ratio:16/9; object-fit:cover; border-radius:12px;
+}
+
+/* HOBBIES: tek sütun */
+#hobbies .hobbies-board{
+grid-template-columns:1fr; grid-template-rows:auto; gap:16px
+}
+.hobby-card{ width:240px;height:240px }
+#hobbies .section-title{
+font-size:1.4rem; background:rgba(255,255,255,.7); padding:6px 10px; border-radius:10px
+}
+
+/* GOALS: tek sütun */
+.goals-grid{ grid-template-columns:1fr }
+
+/* CONTACT daha dar */
+.contact-section{ padding:24px 12px }
+}
+
+/* ================
+KÜÇÜK TELEFONLAR (≤ 380px)
+================ */
+@media (max-width:380px){
+.tl-card{ margin-left:32px }
+.mini-gallery img,.timeline-photo,.tl-video{ max-width:300px }
+.hobby-card{ width:220px;height:220px }
+}
