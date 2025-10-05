@@ -3,6 +3,7 @@
 img{display:block;max-width:100%}
 html{scroll-behavior:smooth}
 
+/* --- Renk Paleti (senin verdiklerin) --- */
 :root{
   --bg:#b9ceac;        /* body arka plan */
   --card:#f5f5dc;      /* IT, Languages, Goals kart zeminleri */
@@ -37,11 +38,11 @@ h2{font-size:1.5rem;color:var(--head);margin:28px 0 12px}
 h3,h4{color:var(--head)}
 p{margin-bottom:16px;color:var(--body)}
 
-
+/* Linkler: mevcut renk ve hover davranışı kalsın */
 a{color:#79aaf1;text-decoration:none}
 a:hover{text-decoration:underline}
 
-
+/* ============ HERO (eskisi) ============ */
 .hero{ text-align:center; padding:28px 0 10px; margin-bottom:18px }
 .avatar{
   width:132px;height:132px;object-fit:cover;border-radius:50%;
@@ -51,7 +52,7 @@ a:hover{text-decoration:underline}
 .hero h1{font-size:32px}
 .hero .tagline{font-size:15px}
 
-/* ============ HERO-2 ) ============ */
+/* ============ HERO-2 (kullandığın üst bölüm) ============ */
 body { background:var(--bg); }
 .hero-2{
   --sage:#dfe8df; --sage-deep:#cfe0d1;
@@ -112,7 +113,7 @@ body { background:var(--bg); }
 }
 .info-thumbs img:hover{ transform:scale(1.03) }
 
-
+/* Languages liste aralığı (senin isteğin) */
 .languages-list li{ font-size:1.2rem; line-height:2.8rem }
 
 /* Responsive IT/Lang */
@@ -193,7 +194,7 @@ body { background:var(--bg); }
   display:grid;
   grid-template-columns:1fr 140px 1fr;
   grid-template-rows:1fr 90px 1fr;
-  gap:10px;                     
+  gap:10px;                      /* yaklaştırıldı */
   align-items:center; justify-items:center;
 }
 .hobbies-board .tl{ grid-column:1; grid-row:1 }
@@ -204,9 +205,9 @@ body { background:var(--bg); }
 
 #hobbies .section-title{
   grid-column:2; grid-row:2;
-  font-size:2.6rem;              
+  font-size:2.6rem;              /* büyütüldü */
   color:var(--head);
-  margin:0 0 6px 0;          
+  margin:0 0 6px 0;              /* başlık-kart arası yakın */
 }
 
 /* flip kartlar (ölçüler korunur) */
@@ -298,9 +299,9 @@ input,textarea{ caret-color:var(--head) }
 
 
 
+/* === PATCH v2 — About kartı + aralıklar + Hobbies yakınlaştırma/büyütme === */
 
-
-
+/* 1) About Me paragrafını kart içine al */
 .about-intro{
   background: var(--card);
   border: 1px solid rgba(2,6,23,.06);
@@ -310,37 +311,37 @@ input,textarea{ caret-color:var(--head) }
 }
 
 /* 2) Bölümler arası boşluklar (Info ↔ Timeline ↔ Hobbies) */
-#info{ margin-bottom: 36px; }         
-#timeline{ margin-top: 56px; margin-bottom: 56px; }  
-#hobbies{ margin-top: 72px; }        
+#info{ margin-bottom: 36px; }          /* IT & Languages bittiğinde nefes aldır */
+#timeline{ margin-top: 56px; margin-bottom: 56px; }  /* Timeline ile komşularından uzaklaş */
+#hobbies{ margin-top: 72px; }          /* Timeline → Hobbies arası biraz daha açılsın */
 
-
+/* 3) Hobbies: başlık daha büyük, kartlar birbirine ve başlığa daha yakın + kartlar daha büyük */
 #hobbies .section-title{
-  font-size: 2.8rem;   
-  margin-bottom: 4px;  
+  font-size: 2.8rem;    /* büyütüldü */
+  margin-bottom: 4px;   /* başlık ile kartlar arası kısaldı */
 }
 
 .hobbies-board{
-  grid-template-columns: 1fr 120px 1fr; 
-  grid-template-rows: 1fr 70px 1fr;    
-  gap: 6px;                              
+  grid-template-columns: 1fr 200px 1fr;  /* ortadaki “Hobbies” alanını daralt → kartlar merkeze yaklaşsın */
+  grid-template-rows: 5fr 100px 5fr;      /* dikeyde de başlığa yakınlaşsın */
+  gap: 20px;                               /* kartlar birbirine daha yakın */
 }
 
-
-.hobby-card{ width: 240px; height: 240px; }
+/* kart boyutlarını büyüt */
+.hobby-card{ width: 160px; height: 160px; }
 
 #hobbies .section-title {
-  display: inline-block;   
-  background: #f5f5dc;     
-  padding: 8px 18px;       
-  border-radius: 10px;  
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12); 
+  display: inline-block;   /* sadece yazının çevresini alsın */
+  background: #f5f5dc;     /* diğer kartlarla uyumlu renk */
+  padding: 8px 18px;       /* yazının etrafına boşluk */
+  border-radius: 10px;     /* köşeleri yumuşat */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12); /* hafif gölge */
   font-size: 2rem;
-  color: #4f7942;          /
+  color: #4f7942;          /* başlık rengi */
   margin-bottom:40px;
 }
 #hobbies .section-title {
-  text-transform: uppercase; 
+  text-transform: uppercase; /* tüm harfleri büyük yapar */
 }
 
 
@@ -349,12 +350,12 @@ input,textarea{ caret-color:var(--head) }
 
 
 .contact-section {
-  background-color:#f5f5dc;  
-  color: #333;               
+  background-color:#f5f5dc;   /* senin seçtiğin renk */
+  color: #333;                 /* yazılar görünür kalsın diye koyu gri */
   text-align: center;
-  padding: 25px 15px;         
+  padding: 25px 15px;          /* daha dar alan */
   margin-top: 40px;
-  border-top: 1px solid #ccc;  
+  border-top: 1px solid #ccc;  /* yukarıya ince ayraç */
 }
 
 .contact-section h2 {
@@ -364,7 +365,7 @@ input,textarea{ caret-color:var(--head) }
 }
 
 .contact-section a {
-  color: #b9ceac;   
+  color: #b9ceac;   /* linklerde hafif mavi ton */
   font-weight: 600;
   text-decoration: none;
 }
@@ -395,7 +396,7 @@ input,textarea{ caret-color:var(--head) }
   border-radius: 10px;
   font-size: 16px;
   line-height: 1.6;
-  max-width: 600px;     
+  max-width: 600px;      /* Çok geniş olmasın */
   margin: 10px auto;
 }
 
@@ -475,7 +476,7 @@ input,textarea{ caret-color:var(--head) }
   overflow: hidden;
 }
 #goals .progress span{
-  --progress: 70%;               
+  --progress: 70%;               /* HTML'de kart bazında override edebilirsin */
   display: block; height: 100%;
   width: 0%;
   background: linear-gradient(90deg,#2E8F74,#2F6FB6);
@@ -484,7 +485,7 @@ input,textarea{ caret-color:var(--head) }
   animation: fg-fill 1.6s ease forwards;
 }
 
-
+/* Mini “pulse” noktacığı (opsiyonel) */
 #goals .progress span::after{
   content:"";
   float:right; height:100%; aspect-ratio:1/1; margin-right:-6px;
@@ -507,7 +508,7 @@ input,textarea{ caret-color:var(--head) }
   100%{ box-shadow: 0 0 0 10px rgba(47,111,182,0); }
 }
 
-
+/* Hareketi sevmeyenler için saygı */
 @media (prefers-reduced-motion: reduce){
   #goals .goal-card,
   #goals .goal-card::after,
@@ -524,7 +525,7 @@ input,textarea{ caret-color:var(--head) }
 
 
 
-
+/* ==== TIMELINE — son hali (renkler güncellendi) ==== */
 #timeline{
 position: relative;
 max-width: 1100px;
@@ -544,7 +545,7 @@ letter-spacing: .04em;
 color: #4f7942; /* başlık rengi */
 }
 
-
+/* Dikey çizgi başlığın altından başlasın */
 #timeline .tl-line{
 position: absolute;
 left: 50%;
@@ -645,10 +646,10 @@ height: 160px;
 
 
 #timeline .tl-card {
-width: 48%; 
+width: 48%; /* önceden 42 idi → biraz daha geniş */
 background: #b9ceac;
 border-radius: 16px;
-padding: 24px 22px;
+padding: 24px 22px; /* iç boşluk biraz arttı */
 box-shadow: 0 8px 22px rgba(0,0,0,.08);
 transition: transform .25s ease;
 }
@@ -702,7 +703,7 @@ transform: translate(-50%,-50%);
 width: 11px; height: 11px;
 }
 
-
+/* Kartlar tek kolon, çizgiden makul uzaklıkta */
 .tl-card{
 width: 100%;
 margin-left: 42px; /* çizgiden uzaklık */
@@ -720,7 +721,7 @@ border-radius: 14px;
 .tl-card h3{ font-size: 1rem; margin-bottom: 8px; }
 .tl-card p{ font-size: .95rem; line-height: 1.55; }
 
-
+/* Mini galeri: tüm görseller/videolar aynı ebatta ve satır içine sığar */
 .mini-gallery{
 display: flex;
 gap: 8px;
@@ -736,7 +737,7 @@ height: 92px;
 object-fit: cover;
 border-radius: 10px;
 }
-
+/* 2'li galeri kullanan kartlar (ör. Germany) yine tek satıra otursun */
 .mini-gallery.two img,
 .mini-gallery.two video{
 width: calc(50% - 6px); /* 2 sütun */
@@ -744,7 +745,7 @@ height: 100px;
 }
 
 /* Hobbies ile Timeline arasında nefes */
-.hobbies{ margin-top: 36px; }
+.hobbies{ margin-top: 48px; }
 #goals{ margin: 40px 12px; padding: 22px 16px; }
 .goals-grid{ grid-template-columns: 1fr; gap: 14px; }
 }
@@ -811,9 +812,9 @@ width:190px;height:190px;object-fit:cover;border-radius:12px;box-shadow:0 6px 16
 .tl-row:nth-child(even) .tl-card{ margin-top:48px }
 
 /* === HOBBIES (merkez başlık + kartlar) === */
-#hobbies{ margin:40px 0 }
+#hobbies{ margin:60px 0 }
 #hobbies .hobbies-board{
-display:grid;grid-template-columns:1fr 220px 1fr;
+display:grid;grid-template-columns:1fr 260px 1fr;
 grid-template-rows:1fr 220px 1fr;gap:28px;align-items:center;justify-items:center
 }
 #hobbies .section-title{ font-weight:800; }
@@ -828,65 +829,6 @@ grid-template-rows:1fr 220px 1fr;gap:28px;align-items:center;justify-items:cente
 
 /* === CONTACT (alt bant) === */
 .contact-section{ padding:36px 16px; text-align:center }
-
-/* ===========================
-MOBİL UYUMLULUK (≤ 768px)
-=========================== */
-@media (max-width:768px){
-
-/* Başlık boyları küçülsün */
-h1{font-size:1.7rem} h2{font-size:1.25rem}
-
-/* Kartlar tek sütun genişlikte */
-.card{ padding:14px }
-
-/* TIMELINE: çizgi sola, kartlar tek sütun */
-#timeline{ padding:18px 16px; margin:24px 0 }
-#timeline > h2{ margin-bottom:8px }
-
-.tl-alt{ padding-top:0 }
-.tl-alt .tl-line{
-left:14px; transform:none; top:58px; bottom:12px; width:3px;
-}
-.tl-dot{ left:14px; transform:translate(-50%,-50%); width:10px; height:10px }
-
-.tl-card{
-width:auto; margin:12px 0 12px 38px; padding:14px; border-radius:14px;
-}
-.tl-card.left,.tl-card.right{ margin-left:38px; margin-right:0 }
-.tl-row{ margin:18px 0 }
-
-/* Medya: 16:9 olacak şekilde aynı ölçü */
-.mini-gallery{ gap:8px; margin:8px 0 }
-.mini-gallery img,.timeline-photo,.tl-video{
-width:100%; max-width:360px; height:auto; aspect-ratio:16/9; object-fit:cover; border-radius:12px;
-}
-
-/* HOBBIES: tek sütun */
-#hobbies .hobbies-board{
-grid-template-columns:1fr; grid-template-rows:auto; gap:16px
-}
-.hobby-card{ width:240px;height:240px }
-#hobbies .section-title{
-font-size:1.4rem; background:rgba(255,255,255,.7); padding:6px 10px; border-radius:10px
-}
-
-/* GOALS: tek sütun */
-.goals-grid{ grid-template-columns:1fr }
-
-/* CONTACT daha dar */
-.contact-section{ padding:24px 12px }
-}
-
-/* ================
-KÜÇÜK TELEFONLAR (≤ 380px)
-================ */
-@media (max-width:380px){
-.tl-card{ margin-left:32px }
-.mini-gallery img,.timeline-photo,.tl-video{ max-width:300px }
-.hobby-card{ width:220px;height:220px }
-}
-
 
 /* ——— Timeline başlık hizası ——— */
 
@@ -1057,9 +999,370 @@ KÜÇÜK TELEFONLAR (≤ 380px)
   }
 
 
+
   /* Güvenlik: daha önce eklenmiş geniş boşluk/margin varsa sıfırla */
 
   .hobbies-board > .cell{ margin: 0 !important; }
 
 }
 
+/* ——— Timeline başlık hizası ——— */
+
+#timeline h2{
+
+  text-align:center;
+
+  letter-spacing:.08em;
+
+  margin: 0 0 12px;
+
+}
+
+
+
+/* ——— Medya boyutlarını sabitle (img + video) ——— */
+
+.tl-video,
+
+.timeline-photo,
+
+.mini-gallery img{
+
+  border-radius:14px;
+
+  object-fit:cover;
+
+}
+
+
+
+/* Masaüstü: mevcut görünümü koru */
+
+@media (min-width: 901px){
+
+  .tl-video,
+
+  .timeline-photo,
+
+  .mini-gallery img{
+
+    width: 280px;
+
+    height: 180px;           /* 16:9 */
+
+  }
+
+}
+
+
+
+/* Mobil düzeltmeler (≤900px) */
+
+@media (max-width: 900px){
+
+  /* Çizgiyi sola al, kartları taşırmadan ortala */
+
+  .tl-alt{ padding-left:12px; padding-right:12px; }
+
+  .tl-alt .tl-line{ left:10px; transform:none; }
+
+  .tl-alt .tl-dot{ left:10px; transform:translate(-50%,-50%); }
+
+
+
+  .tl-card{
+
+    width:auto;
+
+    margin: 18px 16px 26px 36px;  /* çizgiden sonra kart */
+
+  }
+
+
+
+  /* Medyalar kart içinde tam taşmayan genişlikte */
+
+  .tl-video,
+
+  .timeline-photo,
+
+  .mini-gallery img{
+
+    width: 100%;
+
+    max-width: 360px;
+
+    height: auto;
+
+    aspect-ratio: 16 / 9;    /* yükseklik sabit kalsın */
+
+  }
+
+
+
+  /* Hover animasyonları dokunmatik ekranda iptal */
+
+  .tl-card:hover{ transform:none; box-shadow:0 10px 28px rgba(2,6,23,.08); }
+
+}
+
+
+
+/* Dokunmatik cihazlarda hover efektlerini tamamen kapat */
+
+@media (hover:none){
+
+  .tl-card:hover{ transform:none; }
+
+}
+
+
+
+/* === HOBBIES • DESKTOP DÜZELTME (>=901px) === */
+
+@media (min-width: 901px){
+
+  #hobbies{ 
+
+    margin: 48px auto 36px;           /* bölümü biraz yaklaştır */
+
+  }
+
+  #hobbies .section-title{
+
+    font-size: 2.4rem;                 /* başlık okunaklı, ama taşmıyor */
+
+    margin: 2 2 60px;                  /* başlıkla kartlar arası mesafe az */
+
+  }
+
+
+
+  .hobbies-board{
+
+    display: grid;
+
+    grid-template-columns: 1fr 220px 1fr;  /* sol-merkez-sağ */
+
+    grid-template-rows: 1fr 120px 1fr;     /* üst-başlık-alt */
+
+    gap: 30px;                             
+
+    align-items: center;
+
+    justify-items: center;
+
+  }
+
+  .hobbies-board .tl{ grid-column:1; grid-row:1; }
+
+  .hobbies-board .tr{ grid-column:3; grid-row:1; }
+
+  .hobbies-board .center{ grid-column:2; grid-row:2; }
+
+  .hobbies-board .bl{ grid-column:1; grid-row:3; }
+
+  .hobbies-board .br{ grid-column:3; grid-row:3; }
+
+
+
+  .hobby-card{
+
+    width: 300px; 
+
+    height: 300px; 
+
+  }
+
+
+
+  /* Güvenlik: daha önce eklenmiş geniş boşluk/margin varsa sıfırla */
+
+  .hobbies-board > .cell{ margin: 0 !important; }
+
+}
+
+
+
+/* ——— Timeline başlık hizası ——— */
+
+#timeline h2{
+
+  text-align:center;
+
+  letter-spacing:.08em;
+
+  margin: 0 0 12px;
+
+}
+
+
+
+/* ——— Medya boyutlarını sabitle (img + video) ——— */
+
+.tl-video,
+
+.timeline-photo,
+
+.mini-gallery img{
+
+  border-radius:14px;
+
+  object-fit:cover;
+
+}
+
+
+
+/* Masaüstü: mevcut görünümü koru */
+
+@media (min-width: 901px){
+
+  .tl-video,
+
+  .timeline-photo,
+
+  .mini-gallery img{
+
+    width: 280px;
+
+    height: 180px;           /* 16:9 */
+
+  }
+
+}
+
+
+
+/* Mobil düzeltmeler (≤900px) */
+
+@media (max-width: 900px){
+
+  /* Çizgiyi sola al, kartları taşırmadan ortala */
+
+  .tl-alt{ padding-left:12px; padding-right:12px; }
+
+  .tl-alt .tl-line{ left:10px; transform:none; }
+
+  .tl-alt .tl-dot{ left:10px; transform:translate(-50%,-50%); }
+
+
+
+  .tl-card{
+
+    width:auto;
+
+    margin: 18px 16px 26px 36px;  /* çizgiden sonra kart */
+
+  }
+
+
+
+  /* Medyalar kart içinde tam taşmayan genişlikte */
+
+  .tl-video,
+
+  .timeline-photo,
+
+  .mini-gallery img{
+
+    width: 100%;
+
+    max-width: 360px;
+
+    height: auto;
+
+    aspect-ratio: 16 / 9;    /* yükseklik sabit kalsın */
+
+  }
+
+
+
+  /* Hover animasyonları dokunmatik ekranda iptal */
+
+  .tl-card:hover{ transform:none; box-shadow:0 10px 28px rgba(2,6,23,.08); }
+
+}
+
+
+
+/* Dokunmatik cihazlarda hover efektlerini tamamen kapat */
+
+@media (hover:none){
+
+  .tl-card:hover{ transform:none; }
+
+}
+
+
+
+@media (min-width: 900px) {
+  .hobbies-board {
+    grid-template-columns: 1fr 100px 1fr;  /* ortadaki boşluğu küçülttük */
+    grid-template-rows: 1fr 80px 1fr;
+    gap: 10px; /* kartlar birbirine daha yakın */
+  }
+
+  .hobby-card {
+    width: 270px;   /* kartlar büyüdü */
+    height: 270px;
+  }
+
+  #hobbies .section-title {
+    font-size: 3rem;  /* Hobbies yazısı büyüdü */
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 900px) {
+  .timeline-photo {
+    width: 220px;
+    height: 230px;   /* önceki oranı koruyup hafif dikliği azalttık */
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+  }
+}
+
+@media (min-width: 900px) {
+  .hobbies-board {
+    grid-template-columns: 1fr 100px 1fr;  /* ortadaki boşluğu küçülttük */
+    grid-template-rows: 1fr 80px 1fr;
+    gap: 10px; /* kartlar birbirine daha yakın */
+  }
+
+  .hobby-card {
+    width: 270px;   /* kartlar büyüdü */
+    height: 270px;
+  }
+
+  #hobbies .section-title {
+    font-size: 2.7rem;  /* Hobbies yazısı büyüdü */
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 900px) {
+  .timeline-photo {
+    width: 220px;
+    height: 230px;   /* önceki oranı koruyup hafif dikliği azalttık */
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+  }
+}
+
+
+/* 🎯 HOBBIES kartlarının dikey konum düzeni */
+
+/* Üstteki iki kartı (Astronomy, Music) aşağı indir */
+.hobbies-board .tl,
+.hobbies-board .tr {
+transform: translateY(82px);
+}
+
+/* Alttaki iki kartı (Sports, Photography) yukarı çıkar */
+.hobbies-board .bl,
+.hobbies-board .br {
+transform: translateY(-82px);
+}
