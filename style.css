@@ -1413,3 +1413,63 @@ height: 160px;
 font-size: 1.8rem;
 }
 }
+
+/* ===== MOBILE TUNING (<= 600px) ===== */
+@media (max-width: 600px){
+
+/* HOBBIES: başlık ortada, 2x2 sıkı grid */
+#hobbies { padding: 8px 12px; }
+
+.hobbies-board{
+/* 2 sütun, daha küçük ve sıkı boşluk */
+grid-template-columns: repeat(2, minmax(130px,1fr));
+grid-template-rows: auto;
+gap: 14px;
+justify-items: center;
+align-items: center;
+}
+
+/* Başlık her zaman üstte, tam satır kaplasın ve ortalansın */
+.hobbies-board .center{
+grid-column: 1 / -1 !important;
+grid-row: auto !important;
+order: -1;
+}
+
+#hobbies .section-title{
+display: inline-block;
+margin: 4px auto 8px;
+font-size: 2.1rem; /* başlık daha büyük */
+text-align: center;
+}
+
+/* Kartlar aynı hizada ve biraz daha küçük */
+.hobby-card{
+width: 150px;
+height: 150px;
+}
+
+/* Önceden verdiğimiz yukarı/aşağı kaydırmaları mobilde sıfırla */
+.hobbies-board .tl,
+.hobbies-board .tr,
+.hobbies-board .bl,
+.hobbies-board .br{
+transform: none !important;
+}
+}
+
+/* Ultra küçük ekranlar için minik dokunuş */
+@media (max-width: 380px){
+.hobby-card{ width: 140px; height: 140px; }
+#hobbies .section-title{ font-size: 1.9rem; }
+}
+
+/* ===== FUTURE GOALS mobil düzeni ===== */
+@media (max-width: 700px){
+#goals{ padding: 20px 14px; margin: 28px 12px; }
+.goals-grid{
+grid-template-columns: 1fr; /* tek sütun */
+gap: 14px;
+}
+.goal-card{ padding: 16px; }
+}
