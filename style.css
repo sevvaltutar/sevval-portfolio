@@ -1365,3 +1365,51 @@ transform: translateY(92px);
 .hobbies-board .br {
 transform: translateY(-92px);
 }
+
+/* 🌿 HOBBIES bölümünün dikey düzen ve mobil uyumluluk ayarları */
+
+/* Üstteki iki kartı (Astronomy & Music) aşağı indir */
+.hobbies-board .tl,
+.hobbies-board .tr {
+transform: translateY(40px);
+transition: transform 0.4s ease;
+}
+
+/* Alttaki iki kartı (Sports & Photography) yukarı çıkar */
+.hobbies-board .bl,
+.hobbies-board .br {
+transform: translateY(-40px);
+transition: transform 0.4s ease;
+}
+
+/* Mobil görünüm uyarlaması */
+@media (max-width: 880px) {
+.hobbies-board .tl,
+.hobbies-board .tr,
+.hobbies-board .bl,
+.hobbies-board .br {
+transform: none; /* mobilde hepsi hizalı kalsın */
+}
+
+#hobbies .section-title {
+margin-bottom: 20px;
+font-size: 2rem; /* başlık mobilde biraz daha küçük */
+}
+
+.hobby-card {
+width: 180px;
+height: 180px;
+}
+}
+
+/* Ekstra küçük ekranlar (telefonlar) */
+@media (max-width: 500px) {
+.hobby-card {
+width: 160px;
+height: 160px;
+}
+
+#hobbies .section-title {
+font-size: 1.8rem;
+}
+}
