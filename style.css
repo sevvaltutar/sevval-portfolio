@@ -1624,6 +1624,6 @@ left: -25px; /* sola kaydırma miktarı, isteğe göre 15-35px arası oynayabili
 /* Mobil görünüm için küçük ayar */
 @media (max-width: 640px) {
 #hobbies .section-title {
-left: -20px; /* mobilde biraz daha az kaydır */
+left: -30px; /* mobilde biraz daha az kaydır */
 }
 }
