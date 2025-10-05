@@ -1633,7 +1633,7 @@ width: 160px; /* biraz küçülttük */
 height: 160px; /* tam kare form */
 object-fit: cover; /* çerçeve dışına taşmadan ortala */
 border-radius: 14px;
-margin: 10px auto 0; /* ortalama */
+margin: 15px auto 0; /* ortalama */
 display: block;
 transition: transform 0.25s ease;
 }
@@ -1645,8 +1645,8 @@ transform: scale(1.06);
 /* Mobil görünüm için ayrı ayar */
 @media (max-width: 640px) {
 .timeline-photo {
-width: 140px;
-height: 140px;
+width: 120px;
+height: 120px;
 }
 }
 
