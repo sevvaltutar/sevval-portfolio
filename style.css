@@ -1567,3 +1567,48 @@ height: 50px;
 }
 }
 
+/* HOBBIES: başlığı kesin ortala (masaüstü + mobil) */
+#hobbies .section-title{
+display:inline-block;
+margin:0 auto;
+text-align:center;
+transform:none;
+justify-self:center; /* grid içinde ortala */
+align-self:center;
+}
+
+/* Mobil düzen: başlığı tam ortada, kartları 2x2 ızgara */
+@media (max-width: 640px){
+.hobbies-board{
+grid-template-columns: 1fr 1fr;
+grid-template-rows: auto auto auto;
+gap: 18px;
+justify-items: center;
+align-items: center;
+padding: 0 12px;
+}
+/* Başlık tüm satırı kaplasın ve ortalansın */
+.hobbies-board .center{
+grid-column: 1 / -1; /* iki sütunun tamamı */
+grid-row: 2; /* ortadaki sıra */
+justify-self: center;
+margin: 0;
+}
+
+/* Kartları mobilde biraz büyüt, simetrik kalsın */
+.hobby-card{
+width: 42vw;
+height: 42vw;
+margin: 0;
+}
+
+/* Masaüstü için verdiğimiz yukarı-aşağı kaydırmaları (offset) mobilden kaldır */
+.hobbies-board .tl .hobby-card,
+.hobbies-board .tr .hobby-card,
+.hobbies-board .bl .hobby-card,
+.hobbies-board .br .hobby-card{
+position: static;
+top: auto; left: auto;
+}
+}
+
