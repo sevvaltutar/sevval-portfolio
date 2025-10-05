@@ -1352,17 +1352,16 @@ grid-template-rows:1fr 220px 1fr;gap:28px;align-items:center;justify-items:cente
   }
 }
 
-
 /* 🎯 HOBBIES kartlarının dikey konum düzeni */
 
 /* Üstteki iki kartı (Astronomy, Music) aşağı indir */
 .hobbies-board .tl,
 .hobbies-board .tr {
-transform: translateY(82px);
+transform: translateY(92px);
 }
 
 /* Alttaki iki kartı (Sports, Photography) yukarı çıkar */
 .hobbies-board .bl,
 .hobbies-board .br {
-transform: translateY(-82px);
+transform: translateY(-92px);
 }
