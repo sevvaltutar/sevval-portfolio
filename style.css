@@ -1612,3 +1612,18 @@ top: auto; left: auto;
 }
 }
 
+/* HOBBIES başlığını biraz sola kaydır (mobil ve masaüstü için ortak) */
+#hobbies .section-title {
+display: inline-block;
+text-align: center;
+margin: 0 auto;
+position: relative;
+left: -25px; /* sola kaydırma miktarı, isteğe göre 15-35px arası oynayabilirsin */
+}
+
+/* Mobil görünüm için küçük ayar */
+@media (max-width: 640px) {
+#hobbies .section-title {
+left: -20px; /* mobilde biraz daha az kaydır */
+}
+}
