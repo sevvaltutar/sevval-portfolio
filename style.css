@@ -1628,23 +1628,25 @@ left: -20px; /* mobilde biraz daha az kaydır */
 }
 }
 
-/* Timeline'daki son üniversite fotoğrafını orantılı kare yap */
 .timeline-photo {
-width: 180px; /* biraz daralt */
-height: 180px; /* kareye yakınlaştır */
-object-fit: cover; /* çerçevenin dışına taşmadan ortala */
-border-radius: 12px;
+width: 160px; /* biraz küçülttük */
+height: 160px; /* tam kare form */
+object-fit: cover; /* çerçeve dışına taşmadan ortala */
+border-radius: 14px;
+margin: 10px auto 0; /* ortalama */
+display: block;
 transition: transform 0.25s ease;
 }
 
 .timeline-photo:hover {
-transform: scale(1.08); /* hover efekti eskisiyle aynı */
+transform: scale(1.06);
 }
 
-/* Mobil görünümde biraz daha küçük boyut */
+/* Mobil görünüm için ayrı ayar */
 @media (max-width: 640px) {
 .timeline-photo {
-width: 150px;
-height: 150px;
+width: 140px;
+height: 140px;
 }
 }
+
